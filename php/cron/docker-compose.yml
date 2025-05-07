@@ -1,0 +1,12 @@
+version: '3.9'
+
+services:
+  dev:
+    image: faceoffdev/php-cron:${PHP_VERSION}
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: php_cron_dev
+      args:
+        - PHP_VERSION=${PHP_VERSION}
+        - PHP_PREFIX=${PHP_PREFIX}

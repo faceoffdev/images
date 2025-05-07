@@ -1,0 +1,12 @@
+services:
+  dev:
+    image: faceoffdev/php-cli:${PHP_VERSION}
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: php_cli_dev
+      args:
+        - PHP_VERSION=${PHP_VERSION}
+        - PHP_PREFIX=${PHP_PREFIX}
+    volumes:
+      - ./app:/app

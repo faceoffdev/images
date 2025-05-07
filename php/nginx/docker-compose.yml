@@ -1,0 +1,10 @@
+services:
+  dev:
+    image: faceoffdev/php-nginx:${PHP_VERSION}
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: php_nginx_dev
+      args:
+        - PHP_VERSION=${PHP_VERSION}
+        - PHP_PREFIX=${PHP_PREFIX}
