@@ -90,10 +90,10 @@ CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
 
 FROM php_cli AS php_cli_dev
 
-ENV XDEBUG_CLIENT_HOST=${XDEBUG_CLIENT_HOST:-172.17.0.1} \
-    XDEBUG_PORT=${XDEBUG_PORT:-9003} \
-    XDEBUG_IDEKEY=${XDEBUG_IDEKEY:-PHPSTORM} \
-    XDEBUG_MODE=${XDEBUG_MODE:-debug}
+ENV XDEBUG_CLIENT_HOST='172.17.0.1' \
+    XDEBUG_PORT=9003 \
+    XDEBUG_IDEKEY='PHPSTORM' \
+    XDEBUG_MODE='debug'
 
 USER root
 
