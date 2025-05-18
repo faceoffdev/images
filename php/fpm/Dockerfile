@@ -1,6 +1,6 @@
 ARG PHP_VERSION=${PHP_VERSION:-"8.4"}
 ARG PHP_PREFIX=${PHP_PREFIX:-"84"}
-FROM faceoffdev/php-cli:${PHP_VERSION} AS php_nginx
+FROM ghcr.io/faceoffdev/images/php-cli:${PHP_VERSION} AS php_fpm
 
 ARG PHP_VERSION
 ARG PHP_PREFIX
@@ -37,11 +37,11 @@ EXPOSE 8080
 HEALTHCHECK --timeout=10s CMD curl --silent --fail http://127.0.0.1:8080/fpm-ping
 
 
-FROM php_nginx AS php_nginx_dev
+FROM php_fpm AS php_fpm_dev
 
 ENV PHP_FPM_TYPE="ondemand" \
-    PHP_FPM_MAX_CHILDREN=100 \
-    PHP_FPM_MAX_REQUESTS=1000 \
+    PHP_FPM_MAX_CHILDREN=10 \
+    PHP_FPM_MAX_REQUESTS=0 \
     PHP_FPM_PROCESS_IDLE_TIMEOUT="10s" \
     PHP_FPM_REQUEST_TERMINATE_TIMEOUT=300 \
     PHP_OPCACHE_VALIDATE_TIMESTAMPS=1

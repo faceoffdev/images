@@ -1,6 +1,6 @@
 services:
   dev:
-    image: faceoffdev/php-nginx:${PHP_VERSION}
+    image: faceoffdev/php-fpm:${PHP_VERSION}
     build:
       context: .
       dockerfile: Dockerfile

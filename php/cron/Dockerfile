@@ -1,6 +1,6 @@
 ARG PHP_VERSION=${PHP_VERSION:-"8.4"}
 ARG PHP_PREFIX=${PHP_PREFIX:-"84"}
-FROM faceoffdev/php-cli:${PHP_VERSION} AS php_cron
+FROM ghcr.io/faceoffdev/images/php-cli:${PHP_VERSION} AS php_cron
 
 ARG PHP_VERSION
 ARG PHP_PREFIX

@@ -80,9 +80,6 @@ USER ${USER}
 
 WORKDIR ${WORKDIR}
 
-RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)" && \
-sed -i 's/OSH_THEME="font"/OSH_THEME="agnoster"/' ~/.bashrc
-
 ENTRYPOINT ["/sbin/tini", "--", "/usr/bin/docker-entrypoint.sh"]
 
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
@@ -106,3 +103,6 @@ RUN addgroup ${USER} wheel && \
     echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 USER ${USER}
+
+RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)" && \
+sed -i 's/OSH_THEME="font"/OSH_THEME="agnoster"/' ~/.bashrc
