@@ -10,6 +10,9 @@ jobs:
   # Сначала собираем php-cli образы
   build-cli:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     strategy:
       matrix:
         php_version: ["8.4", "8.4-dev"]
@@ -56,6 +59,9 @@ jobs:
   build-fpm-cron:
     needs: build-cli
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     strategy:
       matrix:
         include:
