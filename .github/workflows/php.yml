@@ -2,6 +2,8 @@ name: Build and Push PHP Docker Images
 
 on:
   push:
+    paths:
+      - 'php/**'
     branches:
       - master
   workflow_dispatch:
