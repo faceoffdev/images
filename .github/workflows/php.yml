@@ -48,7 +48,7 @@ jobs:
           file: ./php/cli/Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
-          target: php_cli${{ matrix.php_version == '8.4-dev' && '_dev' || '' }}
+          target: php_cli${{ matrix.php_version == '8.5-dev' && '_dev' || '' }}
           tags: |
             ghcr.io/${{ github.repository }}/php-cli:${{ matrix.php_version }}
           build-args: |
@@ -69,25 +69,25 @@ jobs:
         include:
           - name: php-fpm
             target: php_fpm
-            php_version: "8.4"
+            php_version: "8.5"
             context: ./php/fpm/
             file: ./php/fpm/Dockerfile
 
           - name: php-cron
             target: php_cron
-            php_version: "8.4"
+            php_version: "8.5"
             context: ./php/cron/
             file: ./php/cron/Dockerfile
 
           - name: php-fpm
             target: php_fpm_dev
-            php_version: "8.4-dev"
+            php_version: "8.5-dev"
             context: ./php/fpm/
             file: ./php/fpm/Dockerfile
 
           - name: php-cron
             target: php_cron_dev
-            php_version: "8.4-dev"
+            php_version: "8.5-dev"
             context: ./php/cron/
             file: ./php/cron/Dockerfile
 
