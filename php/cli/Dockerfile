@@ -1,8 +1,8 @@
 ARG ALPINE_VERSION=${ALPINE_VERSION:-"latest"}
 FROM alpine:${ALPINE_VERSION} AS php_cli
 
-ARG PHP_VERSION=${PHP_VERSION:-"8.4"}
-ARG PHP_PREFIX=${PHP_PREFIX:-"84"}
+ARG PHP_VERSION=${PHP_VERSION:-"8.5"}
+ARG PHP_PREFIX=${PHP_PREFIX:-"85"}
 
 ENV PHP_POST_MAX_SIZE=${PHP_POST_MAX_SIZE:-"8M"} \
     PHP_UPLOAD_MAX_FILESIZE=${PHP_UPLOAD_MAX_FILESIZE:-"2M"} \
@@ -38,7 +38,6 @@ RUN apk add --no-cache --update --repository=https://dl-cdn.alpinelinux.org/alpi
     php${PHP_PREFIX}-bcmath \
     php${PHP_PREFIX}-mbstring \
     php${PHP_PREFIX}-json \
-    php${PHP_PREFIX}-opcache \
     php${PHP_PREFIX}-fileinfo \
     php${PHP_PREFIX}-curl \
     php${PHP_PREFIX}-redis \
